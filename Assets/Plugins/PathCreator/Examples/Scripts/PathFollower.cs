@@ -6,10 +6,13 @@ namespace PathCreation.Examples
     // Depending on the end of path instruction, will either loop, reverse, or stop at the end of the path.
     public class PathFollower : MonoBehaviour
     {
+        public Vector3 offSetPos;
+        public Quaternion offSetRot;
+        
         public PathCreator pathCreator;
         public EndOfPathInstruction endOfPathInstruction;
-        public float speed = 5;
-        float distanceTravelled;
+        public float speed;
+        public float distanceTravelled;
 
         void Start() {
             if (pathCreator != null)
