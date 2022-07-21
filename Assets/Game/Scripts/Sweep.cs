@@ -9,6 +9,7 @@ public class Sweep : MonoBehaviour
     private float _position;
     private Transform _transform;
 
+    [Header("Settings")]
     public float roadWidth;
     public float turnMult;
     public float verticalMult;
@@ -45,12 +46,11 @@ public class Sweep : MonoBehaviour
 
     private void TurnReset(float time)
     {
-        _transform.DORotate(new Vector3(0, 0,0), time, RotateMode.Fast);
+        _transform.DORotate(new Vector3(0-_transform.rotation.x, 0,0), time, RotateMode.Fast);
     }
 
     private void VerticalMovement(float multiplier)
     {
         transform.localPosition = new Vector3(0, Mathf.Clamp(transform.localPosition.y-_moveFactorX*multiplier,-roadWidth,roadWidth),0);
     }
-    
 }
