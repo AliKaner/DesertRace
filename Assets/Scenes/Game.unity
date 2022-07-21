@@ -413,12 +413,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 344383445}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 638684dac9d9d714baea581bbfc86bde, type: 3}
+  m_Script: {fileID: 11500000, guid: 0dc0e0bf40ed62242a6806893569288f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   roadWidth: 6
-  turnMult: 0
-  verticalMult: 0
+  turnMult: 5
+  verticalMult: 1
 --- !u!54 &460519972
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1409,7 +1409,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 919132147858799424}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5616ad7190e38a04cbf7e987bb4db6ae, type: 3}
+  m_Script: {fileID: 11500000, guid: d52122b974682a94d8035958f0be842c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   acceleration: 0.05
@@ -2010,9 +2010,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e651899964abb946a744516dd46775d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pathFollower: {fileID: 919132147858799428}
-  totalDistance: 1250
-  _slider: {fileID: 0}
 --- !u!1 &1424073659
 GameObject:
   m_ObjectHideFlags: 0
@@ -2178,6 +2175,37 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4039595124873303809, guid: eb0d67949e423e64cafdc888c3ad617f, type: 3}
+--- !u!1 &1460086961
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1460086962}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1460086962
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1460086961}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 50.005272, y: -0.49777198, z: -555.8955}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &1465057241
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -3582,7 +3610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   offSetPos: {x: 0, y: 0, z: 0}
-  offSetRot: {x: 0.70710677, y: -0.70710677, z: -0.00000003090862, w: -0.00000003090862}
+  offSetRot: {x: 0, y: 0, z: 0, w: 0}
   pathCreator: {fileID: 564674457}
   endOfPathInstruction: 2
   speed: 0
