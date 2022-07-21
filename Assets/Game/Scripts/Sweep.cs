@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using DG.Tweening;
 public class Sweep : MonoBehaviour
@@ -6,6 +7,7 @@ public class Sweep : MonoBehaviour
     private float _lastFrameFingerPositionX;
     private float _moveFactorX;
     private Vector3 _startPosition;
+    private Quaternion _startRotation;
     private float _position;
     private Transform _transform;
 
@@ -18,6 +20,12 @@ public class Sweep : MonoBehaviour
     {
         _transform = GetComponent<Transform>();
     }
+
+    private void Start()
+    {
+        _startRotation = transform.localRotation;
+    }
+
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -32,8 +40,8 @@ public class Sweep : MonoBehaviour
         }
         else if (Input.GetMouseButtonUp(0))
         {
-            TurnReset(0.5f);
             _moveFactorX = 0f;
+            TurnReset(0.5f);
         }
     }
 
@@ -41,12 +49,11 @@ public class Sweep : MonoBehaviour
     {
         var rotation = _transform.rotation;
         _transform.rotation = Quaternion.Euler(rotation.eulerAngles.x, rotation.eulerAngles.y, -_moveFactorX * multiplier);
-        Debug.Log(_transform.rotation);
     }
 
     private void TurnReset(float time)
     {
-        _transform.DORotate(new Vector3(0-_transform.rotation.x, 0,0), time, RotateMode.Fast);
+        _transform.DOLocalRotateQuaternion(_startRotation, time);
     }
 
     private void VerticalMovement(float multiplier)
