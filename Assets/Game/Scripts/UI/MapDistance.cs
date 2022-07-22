@@ -2,7 +2,7 @@ using PathCreation.Examples;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Map : MonoBehaviour
+public class MapDistance : MonoBehaviour
 {
     [SerializeField] private PathFollower pathFollower;
     

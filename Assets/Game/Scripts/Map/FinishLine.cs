@@ -7,11 +7,13 @@ public class FinishLine : MonoBehaviour
 {
     [SerializeField] private Transform camera;
     [SerializeField] private ParticleSystem[] winParticles;
+    [SerializeField] private GameObject finishUI;
     private void OnTriggerEnter(Collider other)
     {
         if (!other.CompareTag("Finish")) return;
         FreeCamera();
         PlayParticles();
+        ActivateUI();
     }
 
     private void FreeCamera()
@@ -25,5 +27,10 @@ public class FinishLine : MonoBehaviour
         {
             particle.Play();
         }
+    }
+
+    private void ActivateUI()
+    {
+        finishUI.SetActive(true);
     }
 }
