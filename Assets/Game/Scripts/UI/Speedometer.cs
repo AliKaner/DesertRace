@@ -6,7 +6,7 @@ public class Speedometer : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI text;
     [SerializeField] private PathFollower pathFollower;
-    
+
     public void RefreshText()
     {
         if (pathFollower.speed < 0)
@@ -14,8 +14,10 @@ public class Speedometer : MonoBehaviour
             text.text = "0";
             return;
         }
+
         text.text = Mathf.FloorToInt(pathFollower.speed).ToString();
     }
+
     public void SetSpeedometerColor(Color givenColor)
     {
         text.color = givenColor;

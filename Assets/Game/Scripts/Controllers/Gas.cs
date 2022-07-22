@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using PathCreation.Examples;
 using UnityEngine;
 
@@ -8,12 +6,11 @@ public class Gas : MonoBehaviour
 {
     [SerializeField] private PathFollower pathFollower;
     [SerializeField] private Speedometer speedometer;
-    [Header("Settings")]
-    [SerializeField] private float acceleration;
+    [Header("Settings")] [SerializeField] private float acceleration;
     public float maxSpeed;
 
     private bool _isNitroAvailable;
-    
+
     private void Update()
     {
         SetSpeedometerColors();
@@ -24,9 +21,9 @@ public class Gas : MonoBehaviour
                 Acceleration(acceleration);
             }
         }
-        else if( pathFollower.speed >1)
+        else if (pathFollower.speed > 1)
         {
-            Acceleration(-acceleration*3);
+            Acceleration(-acceleration * 3);
         }
     }
 
@@ -35,6 +32,7 @@ public class Gas : MonoBehaviour
         pathFollower.speed += _acceleration;
         speedometer.RefreshText();
     }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.collider.CompareTag("Trap"))
@@ -42,6 +40,7 @@ public class Gas : MonoBehaviour
             KnockBack();
         }
     }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Nitro"))
@@ -56,13 +55,15 @@ public class Gas : MonoBehaviour
         pathFollower.speed = 250;
         speedometer.RefreshText();
         yield return new WaitForSeconds(1f);
-        pathFollower.speed = maxSpeed-1;
+        pathFollower.speed = maxSpeed - 1;
         _isNitroAvailable = false;
     }
+
     private void KnockBack()
     {
         pathFollower.speed = -2;
     }
+
     private void SetSpeedometerColors()
     {
         if (_isNitroAvailable == true)
@@ -70,11 +71,13 @@ public class Gas : MonoBehaviour
             speedometer.SetSpeedometerColor(Color.blue);
             return;
         }
+
         if (pathFollower.speed > 70)
         {
             speedometer.SetSpeedometerColor(Color.red);
             return;
         }
+
         speedometer.SetSpeedometerColor(Color.white);
     }
 }
